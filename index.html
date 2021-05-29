@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Trustrobot, the news filtering site!</Title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        </style>
+
+    </head>
+    <body>
+        <script>
+            const Articles_URL1 = 'https://newsapi.org/v2/top-headlines?sources=bbc-news,cnn,&apiKey=25f317f0c3294a429c65d1a29a3d4f32'
+            const Articles_URL2 = 'https://newsapi.org/v2/top-headlines?sources=fox-news&apiKey=25f317f0c3294a429c65d1a29a3d4f32'
+            
+            
+            async function Get_API_URL() {
+                
+              const response1 = await fetch(Articles_URL1);
+              const data1 =  await response1.json();
+
+              const title1 = data1["articles"][0]["title"];
+              const author1 = data1["articles"][0]["author"];
+            
+              const title2 = data1["articles"][1]["title"];
+              const author2 = data1["articles"][1]["author"];
+              
+            
+              const title3 = data1["articles"][2]["title"];
+              const author3 = data1["articles"][2]["author"];
+             
+            
+              const response2 =  await fetch(Articles_URL2);
+              const data2 = await response2.json();
+              
+              
+              const title4 = data2["articles"][0]["title"];
+              const author4 = data2["articles"][0]["author"];
+              
+              const title5 = data2["articles"][1]["title"];
+              const author5 = data2["articles"][1]["author"];
+              
+            
+              const title6 = data2["articles"][2]["title"];
+              const author6 = data2["articles"][2]["author"];
+              
+                document.getElementById("title_news_1").textContent = title1;
+                document.getElementById("author_news_1").textContent = author1;
+                document.getElementById("title_news_2").textContent = title2;
+                document.getElementById("author_news_2").textContent = author2;
+                document.getElementById("title_news_3").textContent = title3;
+                document.getElementById("author_news_3").textContent = author3;
+                document.getElementById("title_news_4").textContent = title4;
+                document.getElementById("author_news_4").textContent = author4;
+                document.getElementById("title_news_5").textContent = title5;
+                document.getElementById("author_news_5").textContent = author5;
+                document.getElementById("title_news_6").textContent = title6;
+                document.getElementById("author_news_6").textContent = author6;  
+            
+            
+            } 
+            
+            async function Get_Article_URL(){
+                const response1a = await fetch(Articles_URL1);
+                const data1a =  await response1a.json();
+            
+                url1 = data1a["articles"][0]["url"];
+                url2 = data1a["articles"][1]["url"];
+                url3 = data1a["articles"][2]["url"];
+                
+                const response2a =  await fetch(Articles_URL2);
+                const data2a = await response2a.json();
+                url4 = data2a["articles"][0]["url"];
+                url5 = data2a["articles"][1]["url"];
+                url6 = data2a["articles"][2]["url"];
+                document.getElementById("article_link_1").href = ''+url1+'';
+                document.getElementById("article_link_2").href = ''+url2+'';
+                document.getElementById("article_link_3").href = ''+url3+'';
+                document.getElementById("article_link_4").href = ''+url4+'';
+                document.getElementById("article_link_5").href = ''+url5+'';
+                document.getElementById("article_link_6").href = ''+url6+'';
+            }
+            
+            async function Get_Image_URL(){
+                const response1b = await fetch(Articles_URL1);
+                const data1b =  await response1b.json();
+            
+                imageurl1 = data1b["articles"][0]["urlToImage"];
+                imageurl2 = data1b["articles"][1]["urlToImage"];
+                imageurl3 = data1b["articles"][2]["urlToImage"];
+            
+                const response2b =  await fetch(Articles_URL2);
+                const data2b = await response2b.json();
+            
+                imageurl4 = data2b["articles"][0]["urlToImage"];
+                imageurl5 = data2b["articles"][1]["urlToImage"];
+                imageurl6 = data2b["articles"][2]["urlToImage"];
+
+                document.getElementById("image_1").style.backgroundImage = 'url('+imageurl1+')';
+                document.getElementById("image_2").style.backgroundImage = 'url('+imageurl2+')';
+                document.getElementById("image_3").style.backgroundImage = 'url('+imageurl3+')';
+                document.getElementById("image_4").style.backgroundImage = 'url('+imageurl4+')';
+                document.getElementById("image_5").style.backgroundImage = 'url('+imageurl5+')';
+                document.getElementById("image_6").style.backgroundImage = 'url('+imageurl6+')';
+            }
+            
+            Get_API_URL();
+            Get_Article_URL();
+            Get_Image_URL();
+            </script>
+        <div id="main_box">
+            <div class="Main_Logo">
+                <img src="trustrobot.png" alt="Trustrobot" />
+                <div id="Tip_Text">Just click on the titles to view the article!</div>
+            </div>
+
+            <div class="Main_tile">
+                    <div class="News_tile">
+                        <a href="" target="_blank" id="article_link_1"><p><span id="title_news_1" class="item_title"></span></p></a>
+                        <a href="" target="_blank" id="article_link_1"><p><span id="author_news_1" class="item_text"></span><p></a>
+                    </div>
+                    <div class="item_image" id="image_1"></div>
+            </div>
+
+            <div class="Main_tile">
+                <div class="News_tile">
+                    <a href="" target="_blank" id="article_link_2"><p><span id="title_news_2" class="item_title"></span></p></a>
+                    <a href="" target="_blank" id="article_link_2"><p><span id="author_news_2" class="item_text"></span></p></a>
+                </div>
+                <div class="item_image" id="image_2"></div>
+            </div>
+
+            <div class="Main_tile">
+                <div class="News_tile">
+                    <a href="" target="_blank" id="article_link_3"><p><span id="title_news_3" class="item_title"></span></p></a>
+                    <a href="" target="_blank" id="article_link_3"><p><span id="author_news_3" class="item_text"></span></p></a>
+                </div>
+                <div class="item_image" id="image_3"></div>
+            </div>
+
+            <div class="Main_tile">
+                <div class="News_tile">
+                    <a href="" target="_blank" id="article_link_4"><p><span id="title_news_4" class="item_title"></span></p></a>
+                    <a href="" target="_blank" id="article_link_4"><p><span id="author_news_4" class="item_text"></span></p></a>
+                </div>
+                <div class="item_image" id="image_4"></div>
+            </div>
+
+            <div class="Main_tile">
+                <div class="News_tile">
+                    <a href="" target="_blank" id="article_link_5"><p><span id="title_news_5" class="item_title"></span></p></a>
+                    <a href="" target="_blank" id="article_link_5"><p><span id="author_news_5" class="item_text"></span><p></a>
+                </div>
+                <div class="item_image" id="image_5"></div>
+            </div>
+
+            <div class="Main_tile">
+                <div class="News_tile">
+                    <a href="" target="_blank" id="article_link_6"><p><span id="title_news_6" class="item_title"></span></p></a>
+                    <a href="" target="_blank" id="article_link_6"><p><span id="author_news_6" class="item_text"></span><p></a>
+                </div>
+                <div class="item_image" id="image_6"></div>
+            </div>
+        </div>
+    </body>
+</html>
