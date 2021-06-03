@@ -1,4 +1,5 @@
-Trustrobot, the web app that filters your news to only bring reliable news sources! Due to how the app fetches news, you have to install MAMP, otherwise the app will throw errors and not run!
+Trustrobot, the web app that filters your news to only bring reliable news sources! Due to how the app fetches news, you have to install MAMP, otherwise the app will not be able to fetch news and not run!
+This is due to the fact that I am using the free version of the newsapi at newsapi.org with the paid version, you would be able to run the app from anywhere and anytime.
 
 How to use:
 1) Clone this repository
